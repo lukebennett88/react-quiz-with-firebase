@@ -22,7 +22,25 @@ progress[value]::-webkit-progress-value {
   @apply relative inline-block w-40 px-4 py-1 font-bold text-center text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600;
 }
 
+.button:disabled {
+  @apply text-gray-500 border-gray-500 cursor-not-allowed;
+}
+
 .button:hover {
+  top: -1px;
+  @apply shadow-lg;
+}
+
+.button:disabled:hover {
+  top: 0;
+  @apply shadow-none;
+}
+
+.input {
+  @apply relative appearance-none inline-block w-full px-4 py-1 font-bold text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600;
+}
+
+.input:hover {
   top: -1px;
   @apply shadow-lg;
 }
