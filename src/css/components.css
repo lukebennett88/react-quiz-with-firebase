@@ -2,7 +2,7 @@
    with utility classes */
 
 .button {
-  @apply relative inline-block w-40 px-4 py-1 font-bold text-center text-blue-600 whitespace-no-wrap bg-white border border-blue-600;
+  @apply relative inline-block w-40 px-4 py-1 font-bold text-center text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600;
 }
 
 .button:hover {
