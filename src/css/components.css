@@ -1,6 +1,23 @@
 /* These classes have lower specificity so we can override them
    with utility classes */
 
+progress[value] {
+  /* Reset the default appearance */
+  @apply appearance-none w-64 h-6 border border-blue-600;
+}
+
+progress[value]::-moz-progress-bar {
+  @apply bg-blue-600;
+}
+
+progress[value]::-webkit-progress-bar {
+  @apply bg-white;
+}
+
+progress[value]::-webkit-progress-value {
+  @apply bg-blue-600;
+}
+
 .button {
   @apply relative inline-block w-40 px-4 py-1 font-bold text-center text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600;
 }

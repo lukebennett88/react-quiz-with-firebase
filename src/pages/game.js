@@ -5,20 +5,25 @@ import SEO from '../components/seo';
 import { loadQuestions } from '../helpers/load-questions';
 import Question from '../components/question';
 import { Loader } from '../components/loader';
+import { HUD } from '../components/hud';
 
 export default function GamePage() {
-  const [state, setState] = React.useState(null);
+  const [questions, setQuestions] = React.useState(null);
+  const [score, setScore] = React.useState(0);
+  const [progress, setProgress] = React.useState(1);
+
+  const numberOfQuestions = 10;
 
   React.useEffect(() => {
     const getQuestions = async () => {
       try {
-        const questions = await loadQuestions({
-          amount: 10,
+        const newQuestions = await loadQuestions({
+          amount: numberOfQuestions,
           category: 9,
           difficulty: 'easy',
           type: 'multiple',
         });
-        setState(questions);
+        setQuestions(newQuestions);
       } catch (err) {
         console.error(err);
       }
@@ -27,18 +32,33 @@ export default function GamePage() {
   }, []);
 
   const changeQuestion = () => {
-    const prevState = [...state];
-    prevState.shift();
-    setState(prevState);
+    const prevQuestions = [...questions];
+    prevQuestions.shift();
+    setQuestions(prevQuestions);
   };
 
   return (
     <Layout>
       <SEO title="Game" />
-      {state === null ? (
+      {questions === null ? (
         <Loader />
       ) : (
-        <Question question={state[0]} changeQuestion={changeQuestion} />
+        <>
+          <HUD
+            numberOfQuestions={numberOfQuestions}
+            progress={progress}
+            score={score}
+          />
+          <Question
+            changeQuestion={changeQuestion}
+            numberOfQuestions={numberOfQuestions}
+            progress={progress}
+            setProgress={setProgress}
+            question={questions[0]}
+            score={score}
+            setScore={setScore}
+          />
+        </>
       )}
     </Layout>
   );
