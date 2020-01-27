@@ -1,3 +1,9 @@
+// Load environment variables
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+// Import default theme from Tailwind so we can use colours for manifest
 const tw = require('tailwindcss/defaultTheme');
 
 module.exports = {
