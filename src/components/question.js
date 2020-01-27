@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SaveScoreForm from './save-score-form';
 
 export default function Question({
   changeQuestion,
@@ -86,7 +87,7 @@ export default function Question({
             </div>
           </>
         ) : (
-          <p>Complete</p>
+          <SaveScoreForm score={score} />
         )}
       </div>
     </div>
