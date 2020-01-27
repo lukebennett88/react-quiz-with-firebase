@@ -5,7 +5,7 @@ module.exports = {
     title: `Trivia Questions`,
     description: ``,
     author: `@luke_bennett_`,
-    siteUrl: ``,
+    siteUrl: `https://react-quiz-with-firebase.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-postcss`,
