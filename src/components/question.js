@@ -77,11 +77,14 @@ export default function Question({
               <p className="w-full text-center">
                 <button
                   type="button"
-                  onClick={() => changeQuestion()}
+                  onClick={() => {
+                    setProgress(progress + 1);
+                    changeQuestion();
+                  }}
                   disabled={answering}
                   className="mt-12 button"
                 >
-                  Next question
+                  Skip question
                 </button>
               </p>
             </div>
