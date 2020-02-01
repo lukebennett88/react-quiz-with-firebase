@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { navigate } from 'gatsby';
+
+import { useFirebase } from './firebase/firebase-context';
 
 export default function SaveScoreForm({ score }) {
   const [username, setUsername] = React.useState('');
+
+  const firebase = useFirebase();
+
   const handleSubmit = e => {
     e.preventDefault();
     const record = {
       name: username,
       score,
     };
+    firebase.scores().push(record, () => {
+      console.log('Score saved');
+      navigate('/');
+    });
   };
 
   const handleChange = e => {
