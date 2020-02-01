@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 export const HUD = ({ numberOfQuestions, progress, score }) => {
   return (
     <div className="w-full px-6 py-3">
-      <div className="flex flex-wrap items-start justify-between max-w-3xl">
-        <div className="text-xl font-bold leading-none text-center">
+      <div className="flex flex-wrap items-start justify-center max-w-3xl md:justify-between">
+        <div className="w-full text-xl font-bold leading-none text-center md:w-auto">
           <p>
             Progress{' '}
             <small>
@@ -19,7 +19,7 @@ export const HUD = ({ numberOfQuestions, progress, score }) => {
             className="mt-2 bg-white"
           />
         </div>
-        <div>
+        <div className="w-full md:w-auto">
           <div className="text-xl font-bold leading-none text-center">
             <p>Score:</p>
             <p className="flex items-center justify-center w-12 h-12 mx-auto mt-2 text-4xl text-white bg-blue-600 rounded-full">
