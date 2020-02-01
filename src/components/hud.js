@@ -9,7 +9,7 @@ export const HUD = ({ numberOfQuestions, progress, score }) => {
           <p>
             Progress{' '}
             <small>
-              {progress}/{numberOfQuestions}
+              {progress - 1}/{numberOfQuestions}
               {}
             </small>
           </p>
