@@ -15,7 +15,7 @@ export const HUD = ({ numberOfQuestions, progress, score }) => {
           </p>
           <progress
             max={numberOfQuestions}
-            value={progress}
+            value={progress - 1}
             className="mt-2 bg-white"
           />
         </div>
