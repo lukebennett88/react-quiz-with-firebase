@@ -1,5 +1,3 @@
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
 import React from 'react';
 import { Link } from 'gatsby';
 
@@ -16,24 +14,21 @@ export default function HighScores() {
   React.useEffect(() => {
     firebase.scores().once('value', snapshot => {
       const data = snapshot.val();
-
-      const formatScores = firebaseScores => {
-        const formattedScores = [];
-        for (const key in firebaseScores) {
-          const val = firebaseScores[key];
-          val.key = key;
-          formattedScores.push(val);
-        }
-        return formattedScores
-          .sort((score2, score1) => score1.score - score2.score)
-          .slice(0, 10);
-      };
-
-      const sortedScores = formatScores(data);
+      const formattedScores = Object.values(data).map((score, index) => {
+        return {
+          key: index,
+          name: score.name,
+          score: score.score,
+        };
+      });
+      const topScores = formattedScores.slice(0, 10);
+      const sortedScores = topScores.sort(
+        (score2, score1) => score1.score - score2.score
+      );
       setScores(sortedScores);
       setLoading(false);
     });
-  }, [firebase, scores]);
+  }, [firebase]);
 
   return (
     <Layout>
