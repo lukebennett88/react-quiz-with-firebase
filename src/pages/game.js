@@ -10,7 +10,8 @@ import { HUD } from '../components/hud';
 export default function GamePage() {
   const [questions, setQuestions] = React.useState(null);
   const [score, setScore] = React.useState(0);
-  const [progress, setProgress] = React.useState(1);
+  const [progress, setProgress] = React.useState(0);
+  console.log(progress);
 
   const numberOfQuestions = 10;
 

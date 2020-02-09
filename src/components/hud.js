@@ -9,13 +9,13 @@ export const HUD = ({ numberOfQuestions, progress, score }) => {
           <p>
             Progress{' '}
             <small>
-              {progress - 1}/{numberOfQuestions}
+              {progress}/{numberOfQuestions}
               {}
             </small>
           </p>
           <progress
             max={numberOfQuestions}
-            value={progress - 1}
+            value={progress || 0.1}
             className="mt-2 bg-white"
           />
         </div>
