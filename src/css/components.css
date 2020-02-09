@@ -37,7 +37,7 @@ progress[value]::-webkit-progress-value {
 }
 
 .input {
-  @apply relative appearance-none inline-block w-full px-4 py-1 font-bold text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600;
+  @apply relative inline-block w-full px-4 py-1 font-bold text-blue-600 no-underline whitespace-no-wrap bg-white border border-blue-600 rounded-none appearance-none;
 }
 
 .input:hover {
